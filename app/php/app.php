@@ -33,18 +33,18 @@ $log->pushHandler($elasticsearchHandler);
 // My Application
 $options = getopt('a:b:');
 
-# App Servidor A
+# App Server A
 if ($options['a'] == 'warning') {
-    $log->warn('Esto es un Warning', ['Servidor' => 'Servidor A']);
+    $log->warn('Ceci est Warning', ['Server' => 'Server A']);
 } else {
-    $log->info('Esto es un Info', ['Servidor' => 'Servidor A']);
+    $log->info('Ceci est Info', ['Server' => 'Server A']);
 }
 
-# App Servidor B
+# App Server B
 if ($options['b'] == 'error') {
-    $log->error('Esto es un Error', ['Servidor' => 'Servidor B']);
+    $log->error('Ceci est Error', ['Server' => 'Server B']);
 } else {
-    $log->info('Esto es un Info', ['Servidor' => 'Servidor B']);
+    $log->info('Ceci est Info', ['Server' => 'Server B']);
 }
 
 
