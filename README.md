@@ -15,7 +15,7 @@ Simple PHP Application using Elastic Stack running with Docker.
 
 ## Setting up the environment :
 
-- ``docker-compose up -d ``  to initialize all the needed services.
+- ``docker-compose up -d``  to initialize all the needed services.
 
 - ```cd app && composer install```  to install needed PHP dependencies.
 
