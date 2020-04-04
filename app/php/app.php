@@ -31,21 +31,20 @@ $elasticsearchHandler = new \Monolog\Handler\ElasticSearchHandler($elasticaClien
 $log->pushHandler($elasticsearchHandler);
 
 // My Application
-$options = getopt('a:b:');
+$options = getopt('t:m:n:');
+$message = $options['m'];
+$nbr = $options['n'];
 
-# App Server A
-if ($options['a'] == 'warning') {
-    $log->warn('Ceci est Warning', ['Server' => 'Server A']);
-} else {
-    $log->info('Ceci est Info', ['Server' => 'Server A']);
+if ($options['t'] == 'error') {
+    for ($i = 1; $i <= $nbr; $i++) {    
+	$log->error('DevOps ELK Lab : Error', ['Message Body' => $message]);
+    }
+} else if ($options['t'] == 'warning') {
+    for ($i = 1; $i <= $nbr; $i++) {
+        $log->warn('DevOps ELK Lab : Warning', ['Message Body' => $message]);
+    }
+} else if ($options['t'] == 'info') {
+    for ($i = 1; $i <= $nbr; $i++) {
+        $log->info('DevOps ELK Lab : Info', ['Message Body' => $message]);
+    }
 }
-
-# App Server B
-if ($options['b'] == 'error') {
-    $log->error('Ceci est Error', ['Server' => 'Server B']);
-} else {
-    $log->info('Ceci est Info', ['Server' => 'Server B']);
-}
-
-
-
