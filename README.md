@@ -19,4 +19,4 @@ Simple PHP Application using Elastic Stack running with Docker.
 
 - ```cd app && composer install```  to install needed PHP dependencies.
 
-- ```php app/app.php -a foo -b bar```  to execute the PHP sample application and generate logs.
+- ```php app/app.php -t <message_type> -m <message_body> -n <number_of_message>```  to execute the PHP sample application and generate logs.
