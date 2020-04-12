@@ -5,7 +5,7 @@ case "$1" in
         echo "Installing VirtualBox, Vagrant, packer, git ..."
         
         sudo apt-get update
-        sudo apt-get install virtualbox git vagrant packer
+        sudo apt-get install -y virtualbox git vagrant packer
         
         echo "Removing old versions of Docker ..."
         
@@ -54,7 +54,7 @@ case "$1" in
     *)
         cat <<HELP;;
 Usage:
-$0 init: install all necessary tools and packages for labs : git, vagrant, docker, docker machine and docker-compose...
+$0 init: install all necessary tools and packages for labs : git, vagrant, docker, docker machine, docker-compose...
 $0 run: run the environment
 $0 rm: discard the environment
 HELP
