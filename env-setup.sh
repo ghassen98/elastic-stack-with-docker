@@ -1,11 +1,15 @@
 #!/bin/bash
 
 case "$1" in
-    go)
-        echo "Removing old versions of Docker ..."
-        sudo apt-get remove docker docker-engine docker.io containerd runc
-
+    init)
+        echo "Installing VirtualBox, Vagrant, packer, git ..."
+        
         sudo apt-get update
+        sudo apt-get install virtualbox git vagrant packer
+        
+        echo "Removing old versions of Docker ..."
+        
+        sudo apt-get remove docker docker-engine docker.io containerd runc
         
         echo "Installing Docker ..."
         
@@ -31,7 +35,6 @@ case "$1" in
             sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
             chmod +x /usr/local/bin/docker-machine
         
-        echo "Docker Machine version : "
         docker-machine version
 
         echo "Installing Docker-compose ..."
@@ -40,16 +43,10 @@ case "$1" in
 
         sudo chmod +x /usr/local/bin/docker-compose
 
-        echo "Docker-compose version : "
         docker-compose --version
         ;;
-    init-windowsonly)
-        docker-compose build
-        docker-compose up
-        rm malware-traffic-analysis.net/eve.json
-        ;;
     run)
-        docker-compose up elasticsearch kibana
+        sudo docker-compose up -d
         ;;
     rm)
         docker-compose rm -f
@@ -57,8 +54,8 @@ case "$1" in
     *)
         cat <<HELP;;
 Usage:
-$0 go: install docker, docker machine and docker-compose.
-$0 run: run already initialized environment.
-$0 rm: discard the environment (frees disk space, has to be recreated with init command)
+$0 init: install all necessary tools and packages for labs : git, vagrant, docker, docker machine and docker-compose...
+$0 run: run the environment.
+$0 rm: discard the environment
 HELP
 esac
