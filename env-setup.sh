@@ -55,7 +55,7 @@ case "$1" in
         cat <<HELP;;
 Usage:
 $0 init: install all necessary tools and packages for labs : git, vagrant, docker, docker machine and docker-compose...
-$0 run: run the environment.
+$0 run: run the environment
 $0 rm: discard the environment
 HELP
 esac
